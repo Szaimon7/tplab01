@@ -1,0 +1,6 @@
+{
+    "javaPMD.rulesets": ["config/pmd.xml"],
+    "javaPMD.runOnFileOpen": true,
+    "javaPMD.runOnFileSave": true,
+    "javaPMD.runOnFileChange": false
+}
