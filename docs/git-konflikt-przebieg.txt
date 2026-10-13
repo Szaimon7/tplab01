@@ -1,0 +1,57 @@
+$ git switch -c cwiczenie-a
+Switched to a new branch 'cwiczenie-a'
+
+$ git add docs/konflikt.txt
+
+$ git commit -m Zmien powitanie w wersji A
+[cwiczenie-a 1ae04cf] Zmien powitanie w wersji A
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git switch main
+Switched to branch 'main'
+
+$ git switch -c cwiczenie-b
+Switched to a new branch 'cwiczenie-b'
+
+$ git add docs/konflikt.txt
+
+$ git commit -m Zmien powitanie w wersji B
+[cwiczenie-b 76710bf] Zmien powitanie w wersji B
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git merge cwiczenie-a
+Auto-merging docs/konflikt.txt
+CONFLICT (content): Merge conflict in docs/konflikt.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Plik w stanie konfliktu:
+<<<<<<< HEAD
+Komunikat: Witaj w aplikacji Maven.
+=======
+Komunikat: Witaj w aplikacji Java.
+>>>>>>> cwiczenie-a
+
+$ git status --short
+UU docs/konflikt.txt
+
+UU docs/konflikt.txt
+
+$ git add docs/konflikt.txt
+
+$ git commit -m Rozwiaz konflikt powitan: polacz wersje A i B
+[cwiczenie-b 0d48d9b] Rozwiaz konflikt powitan: polacz wersje A i B
+
+$ git rev-parse HEAD
+0d48d9bda679a59e348abc374696cbf27c52be5c
+
+$ git rev-list --parents -n 1 0d48d9bda679a59e348abc374696cbf27c52be5c
+0d48d9bda679a59e348abc374696cbf27c52be5c 76710bfaa413bcb92cabd0d4536065a7a8be84c3 1ae04cf6376f3dba88432dd114815cc3e59f993f
+
+$ git switch main
+Switched to branch 'main'
+
+$ git merge --ff-only cwiczenie-b
+Updating 5c30459..0d48d9b
+Fast-forward
+ docs/konflikt.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
