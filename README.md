@@ -1,42 +1,37 @@
 # Lista zadań — TPLab01
 
-Projekt Java do laboratorium Technologie programowania. Konsolowa aplikacja umożliwia
-dodawanie zadań, wyświetlanie listy i oznaczanie zadań jako ukończonych.
-Dane pozostają w pamięci do zamknięcia programu.
+Konsolowa aplikacja Java przygotowana w ramach laboratorium Technologie programowania. Umożliwia dodawanie zadań, wyświetlanie listy i oznaczanie zadań jako ukończonych.
 
-## Narzędzia
+## Uruchomienie
 
-Java 17 lub nowsza, Maven i Git. PMD oraz Checkstyle są skonfigurowane w pom.xml.
-Diagram klas znajduje się w docs/uml.md.
-
-## Budowanie i uruchomienie
+Wymagane: JDK 17 lub nowszy oraz Maven.
 
 ```powershell
 mvn clean verify
 java -jar target/lista-zadan-1.0.0.jar
 ```
 
-Menu: 1 — dodaj, 2 — pokaż, 3 — ukończ, 0 — wyjdź.
+Menu: `1` — dodaj, `2` — wyświetl, `3` — ukończ, `0` — zakończ. Dane pozostają w pamięci do zamknięcia programu.
 
-## Klasy
+## Organizacja projektu
 
-- App — obsługuje konsolę.
-- TaskService — tworzy i przechowuje zadania.
-- Task — przechowuje tytuł i stan zadania.
+- `src/main/java/pl/edu/tplab` — klasy `App`, `TaskService` i `Task`.
+- `pom.xml` — konfiguracja kompilacji, pakowania i kontroli jakości.
+- `config/pmd.xml` — reguły PMD.
+- `config/checkstyle.xml` — reguły Checkstyle.
+- `docs/uml.md` — diagram klas UML.
+- `.vscode` — ustawienia i rekomendowane rozszerzenia edytora.
 
-## Git — zadanie 3
+## Dokumentacja
 
-Historia zawiera ćwiczenie z konfliktem: dwie gałęzie zmieniają tę samą linię
-pliku docs/konflikt.txt, a commit scalający zapisuje rozwiązanie.
-Obie gałęzie przygotowano na moim koncie jako ćwiczenie; nie są commitami kolegi.
-Opis i polecenia do prezentacji znajdują się w docs/git-zadanie3.md.
+[Opis aplikacji, wykorzystanych technologii i weryfikacji](docs/zadanie7.md)
 
-Autor commitów: Szymon Wojtasik.
+[Diagram klas](docs/uml.md) · [Diagram SVG](docs/uml.svg)
 
-## Zadanie 7 — prezentacja aplikacji
+## Historia Git
 
-Kompletna instrukcja uruchomienia, opis współpracy klas i plan demonstracji:
-[docs/zadanie7.md](docs/zadanie7.md).
+Repozytorium zawiera gałęzie `cwiczenie-a` i `cwiczenie-b` oraz commit scalający ich zmiany. Ćwiczenie dotyczyło konfliktu w pliku `docs/konflikt.txt`; przebieg zapisano w `docs/git-konflikt-przebieg.txt`. Obie gałęzie zostały przygotowane na jednym koncie.
 
-Projekt łączy Maven, Git, PMD, Checkstyle i UML. Polecenie `mvn clean verify`
-buduje aplikację i sprawdza skonfigurowane reguły obu analizatorów.
+```powershell
+git log --oneline --graph --all
+```
