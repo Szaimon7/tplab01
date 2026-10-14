@@ -31,11 +31,19 @@
                 <version>3.28.0</version>
                 <configuration>
                     <targetJdk>17</targetJdk>
+                    <includeTests>true</includeTests>
+                    <failOnViolation>true</failOnViolation>
                     <linkXRef>false</linkXRef>
                     <rulesets><ruleset>config/pmd.xml</ruleset></rulesets>
                     <printFailingErrors>true</printFailingErrors>
                 </configuration>
-                <executions><execution><phase>verify</phase><goals><goal>check</goal></goals></execution></executions>
+                <executions>
+                    <execution>
+                        <id>pmd-check</id>
+                        <phase>verify</phase>
+                        <goals><goal>check</goal></goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -45,9 +53,16 @@
                     <configLocation>config/checkstyle.xml</configLocation>
                     <consoleOutput>true</consoleOutput>
                     <failOnViolation>true</failOnViolation>
-                    <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <includes>**/*.java</includes>
                 </configuration>
-                <executions><execution><phase>verify</phase><goals><goal>check</goal></goals></execution></executions>
+                <executions>
+                    <execution>
+                        <id>checkstyle-check</id>
+                        <phase>verify</phase>
+                        <goals><goal>check</goal></goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
