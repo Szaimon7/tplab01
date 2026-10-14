@@ -32,3 +32,11 @@ Obie gałęzie przygotowano na moim koncie jako ćwiczenie; nie są commitami ko
 Opis i polecenia do prezentacji znajdują się w docs/git-zadanie3.md.
 
 Autor commitów: Szymon Wojtasik.
+
+## Zadanie 7 — prezentacja aplikacji
+
+Kompletna instrukcja uruchomienia, opis współpracy klas i plan demonstracji:
+[docs/zadanie7.md](docs/zadanie7.md).
+
+Projekt łączy Maven, Git, PMD, Checkstyle i UML. Polecenie `mvn clean verify`
+buduje aplikację i sprawdza skonfigurowane reguły obu analizatorów.
