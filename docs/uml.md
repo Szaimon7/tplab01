@@ -3,8 +3,8 @@
 ```mermaid
 classDiagram
     class App {
-        +main(String[] args)$ void
-        -printTasks(List~Task~ tasks)$ void
+        +main(String[] args) void$
+        -printTasks(List~Task~ tasks) void$
     }
     class TaskService {
         -List~Task~ tasks
