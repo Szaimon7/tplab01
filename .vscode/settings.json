@@ -1,6 +1,11 @@
 {
-    "javaPMD.rulesets": ["config/pmd.xml"],
+    "javaPMD.rulesets": [
+        "config/pmd.xml"
+    ],
     "javaPMD.runOnFileOpen": true,
     "javaPMD.runOnFileSave": true,
-    "javaPMD.runOnFileChange": false
+    "javaPMD.runOnFileChange": false,
+    "java.checkstyle.configuration": "${workspaceFolder}/config/checkstyle.xml",
+    "java.checkstyle.version": "9.3",
+    "java.checkstyle.autocheck": true
 }
